@@ -3,7 +3,7 @@ MAINTAINER Jon Brouse @jonbrouse
 
 ENV INSTALL_DIR /opt/ice
 ENV HOME_DIR /root
-ENV GRAILS_VERSION 2.4.5
+ENV GRAILS_VERSION 2.4.4
 ENV GRAILS_HOME ${HOME_DIR}/.grails/wrapper/${GRAILS_VERSION}/grails-${GRAILS_VERSION}
 ENV PATH $PATH:${HOME_DIR}/.grails/wrapper/${GRAILS_VERSION}/grails-${GRAILS_VERSION}/bin/
 
@@ -26,7 +26,7 @@ WORKDIR ${INSTALL_DIR}
 RUN \
   mkdir /mnt/ice_processor && \
   mkdir /mnt/ice_reader && \
-  curl https://codeload.github.com/spredfast/ice/tar.gz/master | tar -zx -C /opt/ice --strip 1 && \
+  curl https://codeload.github.com/lyft/ice/tar.gz/master | tar -zx -C /opt/ice --strip 1 && \
   grails ${JAVA_OPTS} wrapper && \
   rm grails-app/i18n/messages.properties && \ 
   sed -i -e '1i#!/bin/bash\' grailsw
